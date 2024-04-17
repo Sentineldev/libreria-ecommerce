@@ -14,8 +14,8 @@ async function bootstrap() {
     }),
   );
   const configService = app.get(ConfigService);
-  app.setGlobalPrefix(configService.get('PREFIX'));
-  swaggerConfig(app, configService.get('PREFIX'));
-  await app.listen(configService.get('PORT'), '0.0.0.0');
+  app.setGlobalPrefix(configService.get('prefix'));
+  swaggerConfig(app, configService.get('prefix'));
+  await app.listen(configService.get('port'), '0.0.0.0');
 }
 bootstrap();
