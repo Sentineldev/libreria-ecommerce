@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;   
+}
+
+.login-box{
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: green;
+    width: 50vw; 
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+}
+
+
+
+.login-box input{
+    display:block; 
+    border: 2px solid green;
+    border-radius: 8px; 
+}
+
+.login-box input:focus{
+    outline: 2px solid blue;
+}
+
+.title{
+    font-size: 30px;
+    color: white;  
+}
+
+.sign-in{
+    width: 50%;
+    height: 50px;
+    background: white; 
+    border: none; 
+    outline: none;
+    color: black;
+    border: 2px solid green;
+    font-size: 20px;  
+    border-radius: 20px; 
+    font-weight: 600; 
+}
