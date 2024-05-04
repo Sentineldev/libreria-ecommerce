@@ -6,15 +6,15 @@ const regexEmail = /^[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-
 
 
 
-function isEmptyUsser(usser:string) {
+export function isEmptyUsser(usser:string) {
     return usser === '' ? true : false;
 }
 
-function isEmail(usser:string){
+export function isEmail(usser:string){
     return regexEmail.test(usser) ? true : false
 }
 
-function isEmptyPassword(password:string) {
+export function isEmptyPassword(password:string) {
     return password === '' ? true : false;
  }
 
