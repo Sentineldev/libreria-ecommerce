@@ -1,8 +1,7 @@
 import ErrorAlert from "../../hooks/errorAlert";
-import {isEmptyPassword, onValidateLogin} from "./validationsLoginForm";
+import {onValidateLogin, validateInput} from "./validationsLoginForm";
 import { useState} from "react";
 import { INITIALY_ERROR_LOGIN} from "../../consts/const";
-import { isEmail } from "./validationsLoginForm";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCircleXmark, faCircleCheck, faEnvelope, faLock} from '@fortawesome/free-solid-svg-icons'
 
@@ -17,62 +16,49 @@ function login (){
         password: '#7f96bd'
     })
 
-    
+    function handleValidationIcon(attribute: string, value: string){
+        setIconValidation(prevState => ({
+            ...prevState,
+            [attribute]: value
+        }));
+    }
+
+    function handleValidationColorIcon(attribute: string, color: string){
+        setColorIcons( prevState => ({
+            ...prevState, 
+            [attribute]: color
+        }))
+
+    }
+
+
     function handleBlur(e: React.FocusEvent<HTMLInputElement>){
         const input = e.currentTarget;
-        switch(input.name){
-            case 'login-usser':
-                if (isEmail(input.value)) {
-                    input.classList.remove('input-error', 'bg-error');
-                    setIconValidation(prevState => ({
-                        ...prevState,
-                        usser: 'validated'
-                    }));
-                    setColorIcons( prevState => ({
-                        ...prevState, 
-                        usser: '#1a890b'
-                    }))
-                } else {
-                    input.classList.add('input-error', 'bg-error');
-                    setIconValidation(prevState => ({
-                        ...prevState,
-                        usser: 'error'
-                    }));
-                    setColorIcons( prevState => ({
-                        ...prevState, 
-                        usser: '#000000'
-                    }))
-                }
-                break;
+        const validations = validateInput(input);
+        
+        if (validations.usser === 'validated') {
+            input.classList.remove('input-error', 'bg-error');
+            handleValidationIcon('usser', 'validated')
+            handleValidationColorIcon('usser', '#1a890b')
+
+        } else if(validations.usser === 'invalidated'){
+            input.classList.add('input-error', 'bg-error');
+            handleValidationIcon('usser', 'error')
+            handleValidationColorIcon('usser', '#000000')
+        }
     
-            case 'login-password':
-                if (!isEmptyPassword(input.value)) {
-                    input.classList.remove('input-error', 'bg-error');
-                    setIconValidation(prevState => ({
-                        ...prevState,
-                        password: 'validated'
-                    }));
-                    setColorIcons(prevState => ({
-                        ...prevState,
-                        password: '1a890b'
-                    }))
-                } else {
-                    input.classList.add('input-error', 'bg-error');
-                    setIconValidation(prevState => ({
-                        ...prevState,
-                        password: 'error'
-                    }));
-                    setColorIcons(prevState => ({
-                        ...prevState,
-                        password: '#000000'
-                    }))
-                }
-                break;
-    
-            default:
-                break;
+        if (validations.password === 'validated') {
+            input.classList.remove('input-error', 'bg-error');
+            handleValidationIcon('password', 'validated')
+            handleValidationColorIcon('password', '#1a890b')
+
+        } else if(validations.password === 'invalidated'){
+            input.classList.add('input-error', 'bg-error');
+            handleValidationIcon('password', 'error')
+            handleValidationColorIcon('password', '#000000')
         }
     }
+
     
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>){
@@ -115,7 +101,7 @@ function login (){
                                         className="absolute bottom-4 left-80" 
                                         />
                                     ) : (
-                                        iconValidation.password === 'error' && (
+                                        iconValidation.usser === 'error' && (
                                             <FontAwesomeIcon icon={faCircleXmark} style={{color: "#000000"}} 
                                             className="absolute bottom-4 left-80"
                                             />

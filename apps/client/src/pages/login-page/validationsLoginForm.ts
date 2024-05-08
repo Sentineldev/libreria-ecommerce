@@ -20,6 +20,34 @@ export function isEmptyPassword(password:string) {
 
 
  
+export function validateInput(input: EventTarget & HTMLInputElement){
+    const validation = {
+        usser: '',
+        password: ''
+    }
+
+    switch(input.name){
+        case 'login-usser':
+            isEmail(input.value) 
+                ? validation.usser = 'validated'
+                : validation.usser = 'invalidated'
+            break;
+
+        case 'login-password':
+
+            !isEmptyPassword(input.value) 
+                ? validation.password = 'validated' 
+                : validation.password = 'invalidated'
+            break;
+
+        default:
+            break;
+    }
+
+    return validation
+}
+
+
 export function onValidateLogin(loginData: loginData){
     const errorLogin = {
         usser: '',
