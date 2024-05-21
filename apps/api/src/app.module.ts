@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
+import { CustomersModule } from './customers/customers.module';
+import { AccountsModule } from './accounts/accounts.module';
 import appConfig from './config/app.config';
 
 @Module({
@@ -13,8 +14,10 @@ import appConfig from './config/app.config';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../../', 'client/dist'),
     }),
+    CustomersModule,
+    AccountsModule,
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [],
 })
 export class AppModule {}
