@@ -142,9 +142,9 @@ function login (){
                                     {errorLogin.password && <ErrorAlert error={errorLogin.password} />}
                             
                                     <button type="submit" className="btn btn-primary w-1/2 text-white">Iniciar sesión</button>
+                                    <a href="#" className="label-text-alt link link-hover">¿Olvidaste tu Contraseña?</a>
+                                    <a href="#" className="label-text-alt link link-hover">¿No te has registrado?</a>
                                 </div>
-                                <a href="#" className="label-text-alt link link-hover">¿Olvidaste tu Contraseña?</a>
-                                <a href="#" className="label-text-alt link link-hover">¿No te has registrado?</a>
                             </form>
                         </div>
                 </div>
