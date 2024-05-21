@@ -17,5 +17,10 @@
   ],
   "devDependencies": {
     "turbo": "^1.13.2"
+  },
+  "dependencies": {
+    "@nestjs/typeorm": "^10.0.2",
+    "pg": "^8.11.5",
+    "typeorm": "^0.3.20"
   }
 }
