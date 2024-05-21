@@ -1,6 +1,12 @@
 Desarrollo de un E-Commerce como proyecto final de la materia Comercio Electronico de la universidad de Oriente 2024.
 
 
+# Estructuracion del proyecto
+
+Base de datos `PostgreSQL`
+Servidor Backend `TypeScript - NestJs`
+Frontend `TypeScript - React`
+
 # Instalacion del proyecto
 
 1. Clonar el repository `https://github.com/Sentineldev/libreria-ecommerce`
