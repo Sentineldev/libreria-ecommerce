@@ -1,18 +1,18 @@
 import ErrorAlert from "../../hooks/errorAlert";
-import {onValidateLogin, validateInput} from "./validationsLoginForm";
+import {onValidateLogin, validateInput} from "./validations/validationsLoginForm";
 import { useState} from "react";
-import { INITIALY_ERROR_LOGIN} from "../../consts/const";
+import { INITIALY_ERROR_LOGIN} from "../../consts/initialyValuesToStates";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCircleXmark, faCircleCheck, faEnvelope, faLock} from '@fortawesome/free-solid-svg-icons'
 
 function login (){
     const [errorLogin, setErrorLogin] = useState(INITIALY_ERROR_LOGIN)
     const [iconValidation, setIconValidation] = useState({
-        usser: "",
+        user: "",
         password: ""
     })
     const [colorIcons, setColorIcons] = useState({
-        usser: '#7f96bd',
+        user: '#7f96bd',
         password: '#7f96bd'
     })
 
@@ -36,15 +36,15 @@ function login (){
         const input = e.currentTarget;
         const validations = validateInput(input);
         
-        if (validations.usser === 'validated') {
+        if (validations.user === 'validated') {
             input.classList.remove('input-error', 'bg-error');
-            handleValidationIcon('usser', 'validated')
-            handleValidationColorIcon('usser', '#1a890b')
+            handleValidationIcon('user', 'validated')
+            handleValidationColorIcon('user', '#1a890b')
 
-        } else if(validations.usser === 'invalidated'){
+        } else if(validations.user === 'invalidated'){
             input.classList.add('input-error', 'bg-error');
-            handleValidationIcon('usser', 'error')
-            handleValidationColorIcon('usser', '#000000')
+            handleValidationIcon('user', 'error')
+            handleValidationColorIcon('user', '#000000')
         }
     
         if (validations.password === 'validated') {
@@ -64,7 +64,7 @@ function login (){
     function handleSubmit(e: React.FormEvent<HTMLFormElement>){
         e.preventDefault();
         const valorFormulario = new FormData(e.currentTarget);
-        const userName = valorFormulario.get('login-usser') as string;
+        const userName = valorFormulario.get('login-user') as string;
         const userPassword = valorFormulario.get('login-password') as string;
         const loginData = {
             userName,
@@ -73,7 +73,6 @@ function login (){
 
         const error = onValidateLogin(loginData);
         setErrorLogin(error)
-
     }
 
 
@@ -92,19 +91,19 @@ function login (){
                                     <label className="w-full text-white relative">
                                         Correo Electronico
                                         <div className="flex items-center">
-                                            <FontAwesomeIcon icon={faEnvelope} style={{color: colorIcons.usser,}} 
+                                            <FontAwesomeIcon icon={faEnvelope} style={{color: colorIcons.user,}} 
                                                 className="absolute bottom-2 left-2 size-7" />
                                             <input type="email" className="block input input-bordered w-full 
                                                 mt-1 pl-10 min-[320px]:text-xs lg:text-base text-base" 
-                                                name="login-usser" autoComplete="off" onBlur={handleBlur}
+                                                name="login-user" autoComplete="off" onBlur={handleBlur}
                                             />
                                         </div>
-                                        {iconValidation.usser === 'validated' ? (
+                                        {iconValidation.user === 'validated' ? (
                                                 <FontAwesomeIcon icon={faCircleCheck} style={{color: "#1a890b"}} 
                                                     className="absolute right-2 bottom-4"
                                                 />
                                             ) : (
-                                                iconValidation.usser === 'error' && (
+                                                iconValidation.user === 'error' && (
                                                     <FontAwesomeIcon icon={faCircleXmark} style={{color: "#000000"}} 
                                                         className="absolute right-2 bottom-4"
                                                     />
@@ -113,7 +112,7 @@ function login (){
 
                                     </label>
                                 
-                                    {errorLogin.usser && <ErrorAlert error={errorLogin.usser} />}
+                                    {errorLogin.user && <ErrorAlert error={errorLogin.user} />}
 
                                     <label className="w-full text-white relative">
                                         Contraseña

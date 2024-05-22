@@ -1,4 +1,4 @@
-import { loginData } from "./typesLogin";
+import { loginData } from "../types/typesLogin";
 
 
 const regexEmail = /^[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}$/;
@@ -6,12 +6,12 @@ const regexEmail = /^[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-
 
 
 
-export function isEmptyUsser(usser:string) {
-    return usser === '' ? true : false;
+export function isEmptyuser(user:string) {
+    return user === '' ? true : false;
 }
 
-export function isEmail(usser:string){
-    return regexEmail.test(usser) ? true : false
+export function isEmail(user:string){
+    return regexEmail.test(user) ? true : false
 }
 
 export function isEmptyPassword(password:string) {
@@ -22,15 +22,15 @@ export function isEmptyPassword(password:string) {
  
 export function validateInput(input: EventTarget & HTMLInputElement){
     const validation = {
-        usser: '',
+        user: '',
         password: ''
     }
 
     switch(input.name){
-        case 'login-usser':
+        case 'login-user':
             isEmail(input.value) 
-                ? validation.usser = 'validated'
-                : validation.usser = 'invalidated'
+                ? validation.user = 'validated'
+                : validation.user = 'invalidated'
             break;
 
         case 'login-password':
@@ -50,14 +50,14 @@ export function validateInput(input: EventTarget & HTMLInputElement){
 
 export function onValidateLogin(loginData: loginData){
     const errorLogin = {
-        usser: '',
+        user: '',
         password: ''
     }
 
-    if(isEmptyUsser(loginData.userName)){
-        errorLogin.usser = 'El corrreo no puede estar vacío'
+    if(isEmptyuser(loginData.userName)){
+        errorLogin.user = 'El corrreo no puede estar vacío'
     }else if(!isEmail(loginData.userName)){
-        errorLogin.usser = 'No es un correo válido'
+        errorLogin.user = 'No es un correo válido'
     }
 
     if(isEmptyPassword(loginData.userPassword)){
