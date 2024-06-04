@@ -5,6 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 import { CustomersModule } from './customers/customers.module';
 import { AccountsModule } from './accounts/accounts.module';
 import appConfig from './config/app.config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import databaseConfig from './config/database.config';
 
 @Module({
   imports: [
@@ -16,6 +18,7 @@ import appConfig from './config/app.config';
     }),
     CustomersModule,
     AccountsModule,
+    TypeOrmModule.forRootAsync(databaseConfig()),
   ],
   controllers: [],
   providers: [],
