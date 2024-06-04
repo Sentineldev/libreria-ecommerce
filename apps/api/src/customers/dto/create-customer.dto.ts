@@ -1,6 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsDefined, IsNotEmpty } from 'class-validator';
-
 export class CreateCustomerDto {
   @ApiProperty({ type: String })
   @IsDefined()
@@ -10,7 +9,7 @@ export class CreateCustomerDto {
   @IsDefined()
   @IsNotEmpty()
   public lastName: string;
-  @ApiProperty({ type: String })
+  @ApiProperty({ type: String, example: '2001-10-23' })
   @IsDefined()
   @IsNotEmpty()
   public birthDate: string;

@@ -2,21 +2,25 @@ import {
   ConflictException,
   Injectable,
   NotFoundException,
-  UnauthorizedException,
+  UnprocessableEntityException,
 } from '@nestjs/common';
 import { CreateAccountDto } from './dto/create-account.dto';
 import Account from './classes/account.class';
 import AccountRepository from './repository/account.repository';
 import Customer from 'src/customers/classes/customer.class';
 import { GenerateUuid } from 'src/utils/uuid';
-import { CheckHashedValue, HashValue } from 'src/utils/encryption';
-import { AuthenticationDto } from './dto/auth-account.dto';
+import { HashValue } from 'src/utils/encryption';
+import { isDate } from 'class-validator';
 
 @Injectable()
 export class AccountsService {
   constructor(private readonly accountRepository: AccountRepository) {}
   async create(body: CreateAccountDto): Promise<Account> {
     //Debe verificar que el correo de la cuenta sea unico.
+
+    const birthDate = new Date(body.customer.birthDate);
+    if (!isDate(birthDate))
+      throw new UnprocessableEntityException('Wrong birthdate format');
     const accountExists = await this.accountRepository.getByEmail(body.email);
 
     if (accountExists) throw new ConflictException('Non unique email address.');
@@ -41,19 +45,6 @@ export class AccountsService {
     const account = await this.accountRepository.getByEmail(email);
 
     if (!account) throw new NotFoundException('Email not found');
-
-    return account;
-  }
-
-  async auth(body: AuthenticationDto): Promise<Account> {
-    const account = await this.getByEmail(body.email);
-
-    //Verificar si el password que se dio, coincide con el de la base de datos.
-    const isPasswordValid = await CheckHashedValue(
-      account.password,
-      body.password,
-    );
-    if (!isPasswordValid) throw new UnauthorizedException('Wrong credentials');
 
     return account;
   }

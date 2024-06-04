@@ -12,11 +12,15 @@ import {
 } from '@nestjs/swagger';
 import { OutGoingAccountDto } from './dto/outgoing-account.dto';
 import { AuthenticationDto } from './dto/auth-account.dto';
+import AuthService from './auth.service';
 
 @Controller('accounts')
 @ApiTags('Cuentas de Usuario')
 export class AccountsController {
-  constructor(private readonly accountsService: AccountsService) {}
+  constructor(
+    private readonly accountsService: AccountsService,
+    private readonly authService: AuthService,
+  ) {}
 
   @Post('create')
   @ApiCreatedResponse({ type: OutGoingAccountDto })
@@ -34,7 +38,7 @@ export class AccountsController {
   @ApiUnprocessableEntityResponse()
   async auth(@Body() body: AuthenticationDto) {
     //ES IMPORTANTE SIEMPRE MAPEAR LA CUENTA Y NO EXPONER EL PASSWORD.
-    const account = await this.accountsService.auth(body);
+    const account = await this.authService.auth(body);
     return AccountMapper.ToOutGoingDto(account);
   }
 }
