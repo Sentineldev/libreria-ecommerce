@@ -10,7 +10,7 @@ Frontend `TypeScript - React`
 # Instalacion del proyecto
 
 1. Clonar el repository `https://github.com/Sentineldev/libreria-ecommerce`
-2. Ejecutar el comando `npm ci` para instalar todas las dependencias necesarias tanto frontend como backend.
+2. Ejecutar el comando `npm i` para instalar todas las dependencias necesarias tanto frontend como backend.
 3. Ejecutar el DDL que se encuentra en `apps/api/database/ddl.sql` para inicializar las tablas correctamente.
 4. Crear un archivo `.env` con las propiedades que se encuentran en el archivo `.env.example` de cada proyecto correspondiente frontend/backend.
 
