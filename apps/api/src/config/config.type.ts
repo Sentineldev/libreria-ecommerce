@@ -8,5 +8,6 @@ export type DatabaseConfig = {
 export type AppConfig = {
   port: number;
   prefix: string;
+  jwtSecret: string;
   database: DatabaseConfig;
 };

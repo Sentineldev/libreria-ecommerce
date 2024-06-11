@@ -13,6 +13,7 @@ import {
 import { OutGoingAccountDto } from './dto/outgoing-account.dto';
 import { AuthenticationDto } from './dto/auth-account.dto';
 import AuthService from './auth.service';
+import { Public } from './is-public.decorator';
 
 @Controller('accounts')
 @ApiTags('Cuentas de Usuario')
@@ -26,6 +27,7 @@ export class AccountsController {
   @ApiCreatedResponse({ type: OutGoingAccountDto })
   @ApiConflictResponse()
   @ApiUnprocessableEntityResponse()
+  @Public()
   async create(@Body() createAccountDto: CreateAccountDto) {
     //ES IMPORTANTE SIEMPRE MAPEAR LA CUENTA Y NO EXPONER EL PASSWORD.
     const account = await this.accountsService.create(createAccountDto);
@@ -36,9 +38,9 @@ export class AccountsController {
   @ApiOkResponse({ type: OutGoingAccountDto })
   @ApiNotFoundResponse()
   @ApiUnprocessableEntityResponse()
-  async auth(@Body() body: AuthenticationDto) {
+  @Public()
+  auth(@Body() body: AuthenticationDto) {
     //ES IMPORTANTE SIEMPRE MAPEAR LA CUENTA Y NO EXPONER EL PASSWORD.
-    const account = await this.authService.auth(body);
-    return AccountMapper.ToOutGoingDto(account);
+    return this.authService.auth(body);
   }
 }
