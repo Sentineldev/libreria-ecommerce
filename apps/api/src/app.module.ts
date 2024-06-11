@@ -7,6 +7,7 @@ import { AccountsModule } from './accounts/accounts.module';
 import appConfig from './config/app.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import databaseConfig from './config/database.config';
+import { ProductModule } from './products/product.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import databaseConfig from './config/database.config';
     }),
     CustomersModule,
     AccountsModule,
+    ProductModule,
     TypeOrmModule.forRootAsync(databaseConfig()),
   ],
   controllers: [],
