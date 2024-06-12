@@ -1,4 +1,4 @@
-import IconAccount from "../pages/landing/account-svgrepo-com.svg"
+import IconAccount from "../pages/landing/pictures/account-svgrepo-com.svg"
 
 export function NavBar () {
   return(
