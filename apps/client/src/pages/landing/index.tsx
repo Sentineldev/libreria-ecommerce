@@ -13,13 +13,13 @@ export default function Index() {
 				<NavBar/>
 				<div className="grid grid-cols-[70%_30%] grid-rows-[70%_20%_auto] h-full text-white">
 					<section className="relative">
-						<h2 className="text-3xl absolute top-6 left-16">Robert Jordan</h2>
-						<h1 className="text-6xl absolute top-24 left-16">EL SEÑOR DEL CAOS</h1>
+						<h2 className="text-xl absolute top-6 left-16">Robert Jordan</h2>
+						<h1 className="text-2xl font-bold lg:text-6xl absolute top-24 left-16">EL SEÑOR DEL CAOS</h1>
 						<p className="text-xl absolute top-40 left-16 text-[#C9C9C9] font-bold">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima veritatis minus neque tenetur, maiores aspernatur velit temporibus harum eos esse! Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam tenetur veritatis provident ab magnam nobis! Neque itaque placeat at.</p>
 					</section>
 					<section className="relative flex items-center">
-						<div className="absolute left-2 w-1/2 h-3/5 bg-white">
-							<figure className="w-full h-full"><img src={Portada} alt="El Señor del Caos" className="w-full h-full"/></figure>
+						<div className="absolute left-2  min-w-32 h-60  lg:w-1/2 lg:h-3/5 bg-white">
+							<figure className="w-full h-full"><img src={Portada} alt="El Señor del Caos" className="w-[100%] h-[100%]"/></figure>
 						</div>
 					</section>
 					
