@@ -1,13 +1,18 @@
 import { Input } from "./components/Inputs"
-import BackGroundSignUp from "./pictures/image_3.svg"
+import BackGroundSignUp from "./pictures/young-woman-reading.jpg"
 
 function SignUp(){
     return(
-			<main className="w-screen h-screen">
+			<main className="w-screen h-screen"  style={{
+				backgroundImage: `url(${BackGroundSignUp})`,
+				backgroundSize: 'cover',
+				backgroundPosition: 'center',
+			  }}>
 				<div className="w-full h-full  flex justify-center items-center">
-					<div className="w-1/2 h-1/2">
+					<div className="bg-cover w-1/2 h-1/2" >
+						<h2 className="text-2xl text-center text-white">Registro de Usuarios</h2>
 						<form className="">
-							<div className="grid grid-cols-[1fr_1fr_1fr_1fr] grid-rows-[1fr_1fr_1fr_1fr_1fr_1fr] gap-2">
+							<div className="grid grid-cols-[1fr_1fr_1fr_1fr] grid-rows-[1fr_1fr_1fr_1fr_1fr_1fr] gap-2 text-white font-semibold">
 								<Input classNameLabel="flex flex-col text-center items-center w-full h-full" classNameContainer="pl-2 col-span-2" 
 									valueLabel="Nombres" inputType="text"
 								/>
