@@ -17,9 +17,11 @@ export default class ProductsApi {
             const response = await this.instance.get("/book-products")
             return response
         } catch (error) {
-            if (axios.isAxiosError(error) && error) {
+            if (axios.isAxiosError(error) && error.response) {
                 return error.response;
             }
+
+            throw new Error('Error making query');
         }
     }
 } 
