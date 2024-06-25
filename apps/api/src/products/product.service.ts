@@ -19,6 +19,7 @@ export default class ProductService {
       ...body,
       author: body.author.join(','),
       language: body.language.join(','),
+      genre: body.genre.join(','),
       releaseDate: new Date(body.releaseDate),
     });
     const newProduct = new BookProduct({
@@ -26,6 +27,7 @@ export default class ProductService {
       ...body,
       book: newBook,
       isPublic: false,
+      hasStock: body.stock > 0 ? true: false,
     });
 
     return await this.repository.create(newProduct);
@@ -42,6 +44,7 @@ export default class ProductService {
       ...body,
       author: body.author.join(','),
       language: body.language.join(','),
+      genre: body.genre.join(','),
       releaseDate: new Date(body.releaseDate),
     });
     const updatedProduct = new BookProduct({
@@ -49,7 +52,7 @@ export default class ProductService {
       ...body,
       book,
     });
-
+    updatedProduct.hasStock = updatedProduct.stock > 0 ? true : false;
     return await this.repository.create(updatedProduct);
   }
 

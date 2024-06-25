@@ -23,7 +23,7 @@ CREATE TABLE book(
     id TEXT PRIMARY KEY,
     title TEXT NOT NULL,
     synopsis TEXT NOT NULL,
-    gender TEXT NOT NULL,
+    genre TEXT NOT NULL,
     image_url TEXT NOT NULL,
     language TEXT NOT NULL,
     author TEXT NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE book_product(
     FOREIGN KEY(book_id) REFERENCES"book"(id)
 );
 
-CREATE TABLE order(
+CREATE TABLE purchase_order(
     id TEXT PRIMARY KEY,
     account_id TEXT NOT NULL,
     total_bolivares FLOAT NOT NULL,
@@ -58,6 +58,6 @@ CREATE TABLE order_book_product(
     total_dollars FLOAT NOT NULL,
     total_bolivares FLOAT NOT NULL,
     PRIMARY KEY(order_id, book_product_id),
-    FOREIGN KEY(order_id) REFERENCES"order"(id),
+    FOREIGN KEY(order_id) REFERENCES"purchase_order"(id),
     FOREIGN KEY(book_product_id) REFERENCES"book_product"(id)
 );

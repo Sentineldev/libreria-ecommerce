@@ -2,7 +2,7 @@ export type BookParams = {
   id: string;
   title: string;
   synopsis: string;
-  gender: string;
+  genre: string;
   imageUrl: string;
   physicalVersion: boolean;
   digitalVersion: boolean;
@@ -15,7 +15,7 @@ export default class Book {
   public id: string;
   public title: string;
   public synopsis: string;
-  public gender: string;
+  public genre: string;
   public imageUrl: string;
   public physicalVersion: boolean;
   public digitalVersion: boolean;
@@ -29,7 +29,7 @@ export default class Book {
       id,
       title,
       synopsis,
-      gender,
+      genre,
       imageUrl,
       physicalVersion,
       digitalVersion,
@@ -42,7 +42,7 @@ export default class Book {
     this.id = id;
     this.title = title;
     this.synopsis = synopsis;
-    this.gender = gender;
+    this.genre = genre;
     this.imageUrl = imageUrl;
     this.physicalVersion = physicalVersion;
     this.digitalVersion = digitalVersion;
@@ -59,6 +59,6 @@ export default class Book {
     return this.language.split(',');
   }
   getGenders(): string[] {
-    return this.gender.split(',');
+    return this.genre.split(',');
   }
 }

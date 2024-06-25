@@ -4,7 +4,7 @@ export type BookEntityParams = {
   id: string;
   title: string;
   synopsis: string;
-  gender: string;
+  genre: string;
   imageUrl: string;
   physicalVersion: boolean;
   digitalVersion: boolean;
@@ -25,8 +25,8 @@ export default class BookEntity {
   @Column('text', { name: 'synopsis', nullable: false })
   public synopsis: string;
 
-  @Column('text', { name: 'gender', nullable: false })
-  public gender: string;
+  @Column('text', { name: 'genre', nullable: false })
+  public genre: string;
 
   @Column('text', { name: 'image_url', nullable: false })
   public imageUrl: string;
@@ -56,7 +56,7 @@ export default class BookEntity {
       synopsis,
       author,
       digitalVersion,
-      gender,
+      genre,
       imageUrl,
       language,
       pageCount,
@@ -67,7 +67,7 @@ export default class BookEntity {
     entity.id = id;
     entity.title = title;
     entity.synopsis = synopsis;
-    entity.gender = gender;
+    entity.genre = genre;
     entity.imageUrl = imageUrl;
     entity.physicalVersion = physicalVersion;
     entity.digitalVersion = digitalVersion;

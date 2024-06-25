@@ -16,12 +16,6 @@ export class CreateBookProductDto extends CreateBookDto {
   @IsNumber()
   public dollarsPrice: number;
 
-  @ApiProperty({ type: Boolean, example: true })
-  @IsDefined()
-  @Transform((val) => JSON.parse(String(val.value)))
-  @IsBoolean()
-  public hasStock: boolean;
-
   @ApiProperty({ type: Number, example: 10 })
   @IsDefined()
   @Transform((val) => Number(val.value))

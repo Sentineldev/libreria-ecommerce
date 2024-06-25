@@ -41,4 +41,11 @@ export default class ProductController {
   getBookProducts() {
     return this.productService.getBookProducts();
   }
+  @Get(':id')
+  @ApiOkResponse({ type: OutGoingBookProductDto })
+  @ApiUnprocessableEntityResponse()
+  @Public()
+  getById(@Param('id') id: string) {
+    return this.productService.getById(id);
+  }
 }

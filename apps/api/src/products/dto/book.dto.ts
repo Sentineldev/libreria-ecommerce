@@ -11,10 +11,7 @@ export class CreateBookDto {
   @IsDefined()
   public synopsis: string;
 
-  @ApiProperty({ type: String, example: 'string' })
-  @IsDefined()
-  public gender: string;
-
+ 
   @ApiProperty({ type: String, example: 'string' })
   @IsDefined()
   public imageUrl: string;
@@ -46,6 +43,11 @@ export class CreateBookDto {
   @IsArray()
   public language: string[];
 
+  @ApiProperty({ type: String, isArray: true, example: ['Comedia',"Romantico"] })
+  @IsDefined()
+  @IsArray()
+  public genre: string[];
+
   @ApiProperty({ type: String, isArray: true, example: ['Autor 1'] })
   @IsDefined()
   @IsArray()
@@ -62,7 +64,7 @@ export class OutGoingBookDto {
   public synopsis: string;
 
   @ApiProperty({ type: String, example: 'string' })
-  public gender: string;
+  public genre: string;
 
   @ApiProperty({ type: String, example: 'string' })
   public imageUrl: string;

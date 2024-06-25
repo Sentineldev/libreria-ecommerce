@@ -15,13 +15,15 @@
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.51.5",
+    "react-flatpickr": "^3.10.13",
+    "react-hook-form": "^7.52.0",
     "react-router-dom": "^6.23.1",
     "sort-by": "^0.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/react-flatpickr": "^3.8.11",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
