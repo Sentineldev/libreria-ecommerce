@@ -37,7 +37,7 @@ export default function ProductDisplay({ productData }: ProductDisplayProps) {
 
     return (
         <div className="grid grid-cols-7 items-center gap-4 p-4 py-6 border-b">
-            <div className="flex items-center gap-2 col-span-3">
+            <div className="flex items-center gap-2 col-span-2">
                 <div className="avatar">
                     <div className="w-12 rounded-full">
                         <img src={product.book.imageUrl}/>

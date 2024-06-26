@@ -12,17 +12,17 @@ export default function ProductsDisplay() {
             <div className="flex flex-col">
                 <div>
                     <div className="grid grid-cols-7 gap-4 bg-slate-100 p-4 items-center">
-                        <div className="col-span-3">
+                        <div className="col-span-2">
                             <h1 className="text-lg opacity-70">Libro</h1>
                         </div>
                         <div>
                             <h1 className="text-lg opacity-70">Stock</h1>
                         </div>
                         <div>
-                            <h1 className="text-lg opacity-70">Precio Dolares</h1>
+                            <h1 className="text-lg opacity-70">P. Dolares</h1>
                         </div>
                         <div>
-                            <h1 className="text-lg opacity-70">Precio Bolivares</h1>
+                            <h1 className="text-lg opacity-70">P. Bolivares</h1>
                         </div>
                         <div>
                             <h1 className="text-lg opacity-70">Estado</h1>
