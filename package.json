@@ -16,9 +16,11 @@
     "apps/*"
   ],
   "devDependencies": {
+    "daisyui": "^4.11.1",
     "turbo": "^1.13.2"
   },
   "dependencies": {
+    "country-state-city": "^3.2.1",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",

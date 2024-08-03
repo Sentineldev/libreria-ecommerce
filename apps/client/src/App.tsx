@@ -1,10 +1,7 @@
-
 import Index from "./pages/landing";
-export default function App() {
+import Index from "./pages/landing";
 
+export default function App() {
   return(
-    <div>
-      <Index/>
-    </div>
-  ) 
-}
+    <SignUp/>
+  )
