@@ -1,4 +1,4 @@
-import { Input } from "./components/Inputs"
+import { InputSignUp } from "./components/InputsSignUp"
 import BackGroundSignUp from "./pictures/young-woman-reading.jpg"
 import { LocationSelector } from "./components/LocationSelectors"
 
@@ -8,6 +8,7 @@ function SignUp(){
 		e.preventDefault()
 		const fields = Object.fromEntries(new window.FormData(e.currentTarget))
 		console.log(fields)
+
 	}
 
     return(
@@ -21,16 +22,16 @@ function SignUp(){
 						<h2 className="text-2xl text-center text-white">Registro de Usuarios</h2>
 						<form className="" onSubmit={handleSubmit}>
 							<div className="grid grid-cols-[1fr_1fr_1fr_1fr] grid-rows-[1fr_1fr_1fr_1fr_1fr_1fr] gap-2 text-white font-semibold">
-								<Input classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pl-2 col-span-2" 
+								<InputSignUp classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pl-2 col-span-2" 
 									valueLabel="Nombres" inputType="text" nameInput="name"
 								/>
-								<Input classNameLabel="flex flex-col text-center items-center w-" classNameContainer="pr-2 col-span-2" 
+								<InputSignUp classNameLabel="flex flex-col text-center items-center w-" classNameContainer="pr-2 col-span-2" 
 									valueLabel="Apellidos" inputType="text" nameInput="lastname"
 								/>
-								<Input classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pl-2 col-span-full pr-2"	
+								<InputSignUp classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pl-2 col-span-full pr-2"	
 									valueLabel="Correo Electrónico" inputType="email" nameInput="email"
 								/>	
-								<Input classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pl-2 col-span-2" 
+								<InputSignUp classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pl-2 col-span-2" 
 									valueLabel="Fecha de Nacimiento" inputType="date" nameInput="birthday"
 								/>
 							
@@ -46,16 +47,16 @@ function SignUp(){
 								
 								<LocationSelector/>
 								
-								<Input classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pl-2 col-span-2" 
+								<InputSignUp classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pl-2 col-span-2" 
 									valueLabel="Dirección" inputType="text" nameInput="direction"
 								/>
-								<Input classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pr-2 col-span-2"
+								<InputSignUp classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pr-2 col-span-2"
 								 valueLabel="Código Postal" inputType="text" nameInput="postal"
 								 />
-								<Input classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pl-2 col-span-2" 
+								<InputSignUp classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pl-2 col-span-2" 
 									valueLabel="Contraseña" inputType="password" nameInput="password"
 								/>
-								<Input classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pr-2 col-span-2" 
+								<InputSignUp classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pr-2 col-span-2" 
 									valueLabel="Confirmar Contraseña" inputType="password" nameInput="confirm-password"
 								/>
 							</div>
