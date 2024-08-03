@@ -6,7 +6,7 @@ export const swaggerOptions: SwaggerCustomOptions = {
   customSiteTitle: 'Libreria API',
   customCss: '.swagger-ui .topbar { display: none }',
   explorer: true,
-  //   customfavIcon: '',
+  // customfavIcon: '../static/favicon.png',
 };
 
 export default (app: INestApplication, prefix: string) => {

@@ -14,7 +14,6 @@ export default function useHello() {
 
             setLoading(true);
             const response = await api.getHello();
-            console.log(response.request)
             if (response.status === 200) {
                 setHello(response.data);
             }
