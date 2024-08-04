@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
-import { CustomersModule } from './customers/customers.module';
-import { AccountsModule } from './accounts/accounts.module';
 import appConfig from './config/app.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import databaseConfig from './config/database.config';
+import { InventoryModule } from './inventory/inventory.module';
+import { StoreModule } from './store/store.module';
 
 @Module({
   imports: [
@@ -16,9 +16,9 @@ import databaseConfig from './config/database.config';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../../', 'client/dist'),
     }),
-    CustomersModule,
-    AccountsModule,
     TypeOrmModule.forRootAsync(databaseConfig()),
+    InventoryModule,
+    StoreModule,
   ],
   controllers: [],
   providers: [],
