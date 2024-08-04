@@ -5,7 +5,7 @@ export default (): TypeOrmModuleAsyncOptions => ({
   imports: [ConfigModule],
   useFactory: (configService: ConfigService) => ({
     type: 'postgres',
-    port: configService.get("database.port"),
+    port: configService.get('database.port'),
     host: configService.get('database.host'),
     username: configService.get('database.user'),
     password: configService.get('database.password'),

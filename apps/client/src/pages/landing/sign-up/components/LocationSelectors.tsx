@@ -1,7 +1,7 @@
 import { useLocation } from "../hooks/useLocation";
 
 export const LocationSelector = () =>{
-	const {country,countryData, state, stateData,city,cityData, handleCountryChange, handleStateChange, handleCityChange} =	useLocation()
+	const { countryData, state, stateData,city,cityData, handleCountryChange, handleStateChange } =	useLocation()
     return(
 		<div className="col-span-full grid grid-cols-[1fr_1fr_1fr] pl-2 pr-2 gap-2 place-items-center">
 			<select className="select select-primary w-full max-w-xs h-14" onChange={handleCountryChange} name="country">
