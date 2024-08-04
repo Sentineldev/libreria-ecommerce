@@ -7,7 +7,6 @@ function SignUp(){
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>){
 		e.preventDefault()
 		const fields = Object.fromEntries(new window.FormData(e.currentTarget))
-		console.log(fields)
 
 	}
 

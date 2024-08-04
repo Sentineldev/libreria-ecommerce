@@ -15,6 +15,7 @@ import { StoreModule } from './store/store.module';
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../../', 'client/dist'),
+      exclude: ['/admin/(.*)'],
     }),
     TypeOrmModule.forRootAsync(databaseConfig()),
     InventoryModule,
