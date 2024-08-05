@@ -1,12 +1,54 @@
 import { InputSignUp } from "./components/InputsSignUp"
 import BackGroundSignUp from "./pictures/young-woman-reading.jpg"
 import { LocationSelector } from "./components/LocationSelectors"
+import {SuccessFullAlert} from "./components/SuccessFullAlert"
+import { useState} from "react"
 
 function SignUp(){
-
+	const [registrationSuccess, setregistrationSuccss] = useState(false)
+	
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>){
 		e.preventDefault()
 		const fields = Object.fromEntries(new window.FormData(e.currentTarget))
+		const { name, lastname, email, birthday, gender, direction, postal, password, country, city, state} = fields;
+		
+		let url = "http://localhost:3000/api/accounts/create";
+		
+		const customer = {
+			firstName: name,
+			lastName: lastname,
+			birthDate: birthday,
+			gender: gender,
+			country: country,
+			city: city,
+			state: state,
+			address: direction,
+			postalCode: postal
+		}
+
+		const data = {
+			email,
+			password,
+			customer
+		}
+
+		console.log(data)
+
+		fetch(url, {
+			method: "POST", 
+			body: JSON.stringify(data), 
+			headers: {
+			  "Content-Type": "application/json",
+			},
+		  })
+			.then((res) => res.json())
+			.catch((error) => console.error("Error:", error))
+			.then((response) =>  {
+				console.log("Success:", response)
+				setregistrationSuccss(true)
+				setTimeout(()=> setregistrationSuccss(false), 10000) 
+			});
+
 
 	}
 
@@ -56,11 +98,17 @@ function SignUp(){
 									valueLabel="Contraseña" inputType="password" nameInput="password"
 								/>
 								<InputSignUp classNameLabel="flex flex-col text-center items-center w-full" classNameContainer="pr-2 col-span-2" 
-									valueLabel="Confirmar Contraseña" inputType="password" nameInput="confirm-password"
+									valueLabel="Confirmar Contraseña" inputType="password" nameInput="confirmPassword"
 								/>
 							</div>
+
+			  				{registrationSuccess && <SuccessFullAlert/>}
+
 							<div className="h-24 w-full mt-1 gap-1 flex flex-col justify-center items-center">
-								<button className="btn  btn-success btn-sm sm:btn-sm md:btn-md lg:btn-md text-white">Registrate</button>
+								<div className="flex gap-2">
+									<button className="btn  btn-success btn-sm sm:btn-sm md:btn-md lg:btn-md text-white" >Registrate</button>
+									<button className="btn btn-accent btn-sm sm:btn-sm md:btn-md lg:btn-md text-white ">Limpiar</button>
+								</div>
 								<span className="text-white">¿Tienes una cuenta? <a href="" className="text-success">Inicia sesión aquí.</a></span>
 							</div>
 						</form>
