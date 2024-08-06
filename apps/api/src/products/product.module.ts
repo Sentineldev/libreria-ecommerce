@@ -10,5 +10,6 @@ import BookProductRepository from './repositories/book-product.entity';
   imports: [TypeOrmModule.forFeature([BookEntity, BookProductEntity])],
   controllers: [ProductController],
   providers: [ProductService, BookProductRepository],
+  exports: [BookProductRepository],
 })
 export class ProductModule {}

@@ -45,19 +45,31 @@ CREATE TABLE book_product(
 
 CREATE TABLE purchase_order(
     id TEXT PRIMARY KEY,
+    date Date NOT NULL,
     account_id TEXT NOT NULL,
+    status text not null,
     total_bolivares FLOAT NOT NULL,
     total_dollars FLOAT NOT NULL,
-    date Date NOT NULL,
     FOREIGN KEY(account_id) REFERENCES"account"(id)
 );
 CREATE TABLE order_book_product(
     order_id TEXT NOT NULL,
-    book_product_id TEXT NOT NULL,
+    product_id TEXT NOT NULL,
     quantity INT NOT NULL,
     total_dollars FLOAT NOT NULL,
     total_bolivares FLOAT NOT NULL,
-    PRIMARY KEY(order_id, book_product_id),
+    PRIMARY KEY(order_id, product_id),
     FOREIGN KEY(order_id) REFERENCES"purchase_order"(id),
-    FOREIGN KEY(book_product_id) REFERENCES"book_product"(id)
+    FOREIGN KEY(product_id) REFERENCES"book_product"(id)
+);
+
+
+CREATE TABLE order_comment(
+    id TEXT NOT NULL,
+    order_id TEXT NOT NULL,
+    body TEXT,
+    created_at TIMESTAMP,
+    from_customer boolean,
+    PRIMARY KEY(id, order_id),
+    FOREIGN KEY(order_id) REFERENCES"purchase_order"(id) 
 );

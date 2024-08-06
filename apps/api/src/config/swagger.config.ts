@@ -4,6 +4,7 @@ import { INestApplication } from '@nestjs/common';
 import { ProductModule } from 'src/products/product.module';
 import { AccountsModule } from 'src/accounts/accounts.module';
 import { CustomersModule } from 'src/customers/customers.module';
+import { OrdersModule } from 'src/orders/orders.module';
 
 export const swaggerOptions: SwaggerCustomOptions = {
   customSiteTitle: 'Libreria API',
@@ -31,7 +32,7 @@ export default (app: INestApplication, prefix: string) => {
     .build();
   // .addBearerAuth()
   const swaggerDocument2 = SwaggerModule.createDocument(app, build2, {
-    include: [ProductModule],
+    include: [ProductModule, OrdersModule],
   });
   SwaggerModule.setup('/store_api', app, swaggerDocument2, swaggerOptions);
 };
