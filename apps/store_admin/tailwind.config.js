@@ -7,11 +7,49 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   daisyui: {
-    themes: ["emerald"]
+    themes: [
+      "light",
+      "dark",
+      "cupcake",
+      "bumblebee",
+      "emerald",
+      "corporate",
+      "synthwave",
+      "retro",
+      "cyberpunk",
+      "valentine",
+      "halloween",
+      "garden",
+      "forest",
+      "aqua",
+      "lofi",
+      "pastel",
+      "fantasy",
+      "wireframe",
+      "black",
+      "luxury",
+      "dracula",
+      "cmyk",
+      "autumn",
+      "business",
+      "acid",
+      "lemonade",
+      "night",
+      "coffee",
+      "winter",
+    ],
   },
-  theme: {
-    extend: {},
-  },
+  // theme: {
+  //   extend: {
+  //     colors: {
+  //       "primary": "#EAE0D5",
+  //       "secondary": "#5E503F",
+  //     },
+  //     screens: {
+  //       cardSize: '320px'
+  //     }
+  //   },
+  // },
   plugins: [
     daisyui,
   ],

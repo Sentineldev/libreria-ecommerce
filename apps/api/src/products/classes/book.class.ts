@@ -52,6 +52,21 @@ export default class Book {
     this.author = author;
   }
 
+  public static DigitalBook(params: BookParams) {
+    const instance = new Book(params);
+    instance.digitalVersion = true;
+    instance.physicalVersion = false;
+
+    return instance;
+  }
+
+  public static PhysicalBook(params: BookParams) {
+    const instance = new Book(params);
+    instance.digitalVersion = false;
+    instance.physicalVersion = true;
+    return instance;
+  }
+
   getAuthors(): string[] {
     return this.author.split(',');
   }

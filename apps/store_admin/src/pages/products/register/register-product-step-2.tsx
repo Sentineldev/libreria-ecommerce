@@ -3,6 +3,7 @@ import { BookProductFormFields } from "../types/form.type";
 import FormInput from "../../../components/form-input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faCheck } from "@fortawesome/free-solid-svg-icons";
+import ValidationsUtils from "../../../utils/validation";
 
 
 export type RegisterProductStep2Props = {
@@ -12,7 +13,7 @@ export type RegisterProductStep2Props = {
 }
 export default function RegisterProductStep2({ GoBack,  onSubmit, defaultValue }: RegisterProductStep2Props) {
 
-    const { handleSubmit, control } = useForm<BookProductFormFields>({
+    const { handleSubmit, control, formState: { errors } } = useForm<BookProductFormFields>({
         defaultValues: defaultValue ? defaultValue : {
             bolivaresPrice: "750.39",
             dollarsPrice: "30.42",
@@ -31,39 +32,57 @@ export default function RegisterProductStep2({ GoBack,  onSubmit, defaultValue }
                     Regresar
                 </button>
             </div>
-            <Controller
-            control={control}
-            name="dollarsPrice"
-            rules={{
-                required: true,
-                validate: {
-                    isNumber: v => !isNaN(Number(v)),
-                },
-            }}
-            render={(({ field }) => <FormInput label="Precio en dolares" props={{...field, type: "number" }}/>)}
-            />
-            <Controller
-            control={control}
-            name="bolivaresPrice"
-            rules={{
-                required: true,
-                validate: {
-                    isNumber: v => !isNaN(Number(v)),
-                },
-            }}
-            render={(({ field }) => <FormInput label="Precio en bolivares" props={{...field, type: "number" }}/>)}
-            />
-            <Controller
-            control={control}
-            name="stock"
-            rules={{
-                required: true,
-                validate: {
-                    isNumber: v => !isNaN(Number(v)),
-                },
-            }}
-            render={(({ field }) => <FormInput label="Stock" props={{...field, type: "number" }}/>)}
-            />
+            <div className="flex flex-col gap-1">
+                <Controller
+                control={control}
+                name="dollarsPrice"
+                rules={{
+                    required: {
+                        value: true,
+                        message: "Ingrese el precio en dolares"
+                    },
+                    validate: {
+                        isNumber: v => ValidationsUtils.IsStringNumber(v) || "Ingrese un numero",
+                    }
+                }}
+                render={(({ field }) => <FormInput label="Precio en dolares" props={{...field, type: "text" }}/>)}
+                />
+                { errors.dollarsPrice && <p className="text-error">{errors.dollarsPrice.message}</p> }
+            </div>
+            <div className="flex flex-col gap-1">
+                <Controller
+                control={control}
+                name="bolivaresPrice"
+                rules={{
+                    required: {
+                        value: true,
+                        message: "Ingrese el precio en bolivares"
+                    },
+                    validate: {
+                        isNumber: v => ValidationsUtils.IsStringNumber(v) || "Ingrese un numero",
+                    }
+                }}
+                render={(({ field }) => <FormInput label="Precio en bolivares" props={{...field, type: "text" }}/>)}
+                />
+                { errors.bolivaresPrice && <p className="text-error">{errors.bolivaresPrice.message}</p> }
+            </div>
+            <div className="flex flex-col gap-1">
+                <Controller
+                control={control}
+                name="stock"
+                rules={{
+                    required: {
+                        value: true,
+                        message: "Ingrese el stock"
+                    },
+                    validate: {
+                        isNumber: v => ValidationsUtils.IsStringNumber(v) || "Ingrese un numero",
+                    }
+                }}
+                render={(({ field }) => <FormInput label="Stock" props={{...field, type: "text" }}/>)}
+                />
+                { errors.stock && <p className="text-error">{errors.stock.message}</p> }
+            </div>
             <div className="flex justify-end py-2">
                 <button className="btn btn-primary">
                     Registrar
