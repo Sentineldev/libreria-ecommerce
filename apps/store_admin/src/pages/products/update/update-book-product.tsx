@@ -16,11 +16,6 @@ export default function UpdateBookProduct() {
 
     const fromProduct = searchParams.get("from_product");
 
-    if (!id || id.length === 0) {
-        return (
-            <h1>Producto no encontrado!</h1>
-        );
-    }
 
     const [loading, setLoading] = useState(true);
 
@@ -66,6 +61,8 @@ export default function UpdateBookProduct() {
     useEffect(() => {
         const load = async () => {
 
+            if (!id) return;
+
             const api = new ProductsApi();
 
             const response = await api.getById(id);
@@ -85,7 +82,7 @@ export default function UpdateBookProduct() {
             setLoading(false);
         }
         load();
-    },[])
+    },[id])
 
     return (
         <>

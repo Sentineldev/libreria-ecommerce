@@ -16,7 +16,6 @@ export default function Auth() {
 
 
     async function SubmitHandler(data: AuthFormData) {
-
         console.log('Form data...', data);
     }   
 

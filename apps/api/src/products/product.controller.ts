@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import ProductService from './product.service';
 import {
   ApiCreatedResponse,
@@ -47,5 +55,13 @@ export default class ProductController {
   @Public()
   getById(@Param('id') id: string) {
     return this.productService.getById(id);
+  }
+
+  @Delete(':id')
+  @ApiOkResponse({ type: OutGoingBookProductDto })
+  @ApiUnprocessableEntityResponse()
+  @Public()
+  delete(@Param('id') id: string) {
+    return this.productService.delete(id);
   }
 }

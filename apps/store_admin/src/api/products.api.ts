@@ -62,4 +62,18 @@ export default class ProductsApi {
             throw new Error('Error making query');
         }
     }
+
+    async delete(id: string) {
+        try {
+            const response = await this.instance.delete(`/${id}`)
+            return response
+        } catch (error) {
+            if (axios.isAxiosError(error) && error.response) {
+                return error.response;
+            }
+
+            throw new Error('Error making query');
+        }
+
+    }
 } 

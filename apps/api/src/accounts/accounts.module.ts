@@ -18,6 +18,7 @@ import { ConfigModule } from '@nestjs/config';
     AccountRepository,
     { provide: 'APP_GUARD', useClass: AuthGuard },
   ],
+  exports: [AccountsService],
   imports: [
     TypeOrmModule.forFeature([CustomerEntity, AccountEntity]),
     JwtModule.registerAsync(jwtConfig()),

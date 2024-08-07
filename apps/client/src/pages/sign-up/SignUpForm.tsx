@@ -57,8 +57,7 @@ function SignUp() {
         })
         .then((res) => res.json())
         .catch((error) => console.error("Error:", error))
-        .then((response) => {
-            console.log("Success:", response);
+        .then(() => {
             setRegistrationSuccess(true);
             handleClean();
             setTimeout(() => setRegistrationSuccess(false), 12000);
