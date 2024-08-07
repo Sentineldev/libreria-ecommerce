@@ -17,6 +17,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 <div className="h-full w-full absolute bg-[rgba(0,0,0,0.5)] flex flex-col">
                     <div className="p-4">
                         <h1 className="font-bold text-[1.4rem] text-white">{product.book.title}</h1>
+                        <p className="text-white text-[1.2rem]">{product.book.digitalVersion ? "Digital" : "Fisico"}</p>
                     </div>
                     <div className="grid grid-cols-2 items-end p-4 flex-1">
                         <p className="text-white text-xl font-bold"> $ {product.bolivaresPrice}</p>

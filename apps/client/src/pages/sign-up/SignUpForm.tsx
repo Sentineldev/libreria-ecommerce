@@ -28,7 +28,7 @@ function SignUp() {
     } else {
         setErrorsState(INITIALY_DATA_CUSTOMER);
 
-        const url = import.meta.env.VITE_API_URL;
+        const url = import.meta.env.VITE_API_URL + "/accounts/create";
 
         const customer = {
             firstName: fields.name,
