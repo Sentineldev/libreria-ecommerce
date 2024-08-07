@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Product, PropsProduct } from "./components/Product"
-
+import { Cart } from "./components/Cart"
 export const Catalog = () => {
     const [products, setProducts] = useState <PropsProduct[]>([])
     
@@ -19,14 +19,16 @@ export const Catalog = () => {
          
     },[])
 
-    console.log(products)
     return (
-        <ul className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
-            {products.map(product => (
-                <li key={product.book.title} className="flex flex-col gap-4 shadow-lg rounded-md bg-[#111] text-white p-4">
-                    <Product {...product} />
-                </li>
-            ))}
-        </ul>
+        <>
+            <Cart/> 
+            <ul className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+                {products.map(product => (
+                    <li key={product.book.title} className="flex flex-col gap-4 shadow-lg rounded-md bg-[#111] text-white p-4">
+                        <Product {...product} />
+                    </li>
+                ))}
+            </ul>
+        </>
     )
 }
