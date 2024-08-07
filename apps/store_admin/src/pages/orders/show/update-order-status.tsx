@@ -20,6 +20,8 @@ export default function UpdateOrderStatus({ order, status, onUpdate }: UpdateOrd
 
     async function onUpdateHandler() {
 
+        setErrorMessage("");
+        setErrorMessage("");
         const api = new OrderApi();
 
         const response = await api.update(order.id, status);
@@ -37,7 +39,7 @@ export default function UpdateOrderStatus({ order, status, onUpdate }: UpdateOrd
 
     return (
         <CustomModal dialogId={modalId}>
-            <div className="p-4 flex flex-col gap-4">
+            <div className="p-4 flex flex-col gap-4 py-12">
                 { errorMessage.length > 0 && <ErrorAlert message={errorMessage}/> }
                 { successMessage.length > 0 && <SuccessAlert message={successMessage}/> }
                 <h1>Actualizar estado de orden</h1>

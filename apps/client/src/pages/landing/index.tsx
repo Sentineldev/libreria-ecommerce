@@ -1,14 +1,16 @@
-import { NavBar } from "../../components/Navbar";
 import BackgroundLanding from "../landing/pictures/Background-landing.jpg"
 import Portada from "../landing/pictures/portada_la-rueda-del-tiempo-n-0614-el-senor-del-caos_robert-jordan_202111161743.jpg"
 import { useQuote } from "./hooks/useQuote";
+import { NavBar } from "../../components/Navbar";
 import { Footer } from "./Footer";
+import AuthRequired from "../../context/auth-required";
 
 export default function Index() {
    const {quotes, quoteIndex, changeQuoteWithCircle}  = useQuote();
 
     return (
-       <div className="w-full h-full">
+    <AuthRequired>
+		<div className="w-full h-full">
 			<div className="bg-cover h-screen w-full bg-black grid grid-cols-1 grid-rows-[5rem_auto]" style={{backgroundImage: `url(${BackgroundLanding})`}}>
 				<NavBar/>
 				<div className="grid grid-cols-[70%_30%] grid-rows-[70%_20%_auto] h-full text-white">
@@ -46,5 +48,6 @@ export default function Index() {
 			</div>
 			<Footer/>
 		</div>
+	</AuthRequired>
     );
 }

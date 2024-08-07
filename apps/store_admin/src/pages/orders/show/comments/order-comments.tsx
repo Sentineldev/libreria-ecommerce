@@ -17,7 +17,7 @@ export default function OrderComments({ comments, order, onSend }: OrderComments
             <div className="border-b border-neutral-300 p-2 px-4">
                 <header className="text-primary text-[1.1rem] flex items-center gap-1">
                     <FontAwesomeIcon icon={faComments}/>
-                    <span>Comentarios</span>
+                    <span>Chat</span>
                 </header>
             </div>
             <div className="flex flex-col gap-2 p-2 px-4 h-full overflow-auto">
