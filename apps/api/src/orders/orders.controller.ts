@@ -62,9 +62,10 @@ export class OrdersController {
     return this.ordersService.addCommentCustomer(body, orderId);
   }
 
-  @Patch(':id/:status')
+  @Patch(':orderId/:status')
   @ApiOkResponse()
   update(@Param('orderId') id: string, @Param('status') status: string) {
+    console.log(id);
     return this.ordersService.update(id, status);
   }
 

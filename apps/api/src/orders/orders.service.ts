@@ -65,6 +65,10 @@ export class OrdersService {
 
   async addCommentCustomer(body: CreateOrderCommentDto, orderId: string) {
     const order = await this.getById(orderId);
+
+    if (order.status === 'COMPLETED') {
+      return;
+    }
     const newComment = new OrderComment({
       body: body.body,
       createdAt: DateUtils.TimeStamp(),

@@ -6,7 +6,7 @@ export default function Logout() {
 
     StorageUtils.ClearToken();
 
-    window.location.href = "/store"
+    window.location.href = "/"
 
     return (
         <Fragment></Fragment>

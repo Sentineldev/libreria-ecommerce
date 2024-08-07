@@ -3,13 +3,11 @@ import Portada from "../landing/pictures/portada_la-rueda-del-tiempo-n-0614-el-s
 import { useQuote } from "./hooks/useQuote";
 import { NavBar } from "../../components/Navbar";
 import { Footer } from "./Footer";
-import AuthRequired from "../../context/auth-required";
 
 export default function Index() {
    const {quotes, quoteIndex, changeQuoteWithCircle}  = useQuote();
 
     return (
-    <AuthRequired>
 		<div className="w-full h-full">
 			<div className="bg-cover h-screen w-full bg-black grid grid-cols-1 grid-rows-[5rem_auto]" style={{backgroundImage: `url(${BackgroundLanding})`}}>
 				<NavBar/>
@@ -48,6 +46,5 @@ export default function Index() {
 			</div>
 			<Footer/>
 		</div>
-	</AuthRequired>
     );
 }

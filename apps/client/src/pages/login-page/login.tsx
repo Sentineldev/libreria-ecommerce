@@ -34,7 +34,7 @@ export default function LoginIndex () {
         if (response.status === 201) {
             StorageUtils.SaveToken(response.data);
 
-            window.location.href = "/store"
+            window.location.href = "/"
         }
         if (response.status !== 201) {
             setErrorMessage("Credenciales invalidas")
@@ -51,7 +51,7 @@ export default function LoginIndex () {
 
 
 
-        window.location.href = "/store"
+        window.location.href = "/"
     },[])
     return(
         <div className="container-login flex justify-center items-center w-screen h-screen">

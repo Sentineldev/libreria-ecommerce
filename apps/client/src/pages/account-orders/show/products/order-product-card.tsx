@@ -1,7 +1,7 @@
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IncomingOrderProductDto } from "../../../../api/orders.type";
 import OrderProductCardDisplay from "./product-display";
+import { IncomingOrderProductDto } from "../../../../http/orders/orders.dto";
 
 export type OrderProductCardProps = {
     products: IncomingOrderProductDto[];

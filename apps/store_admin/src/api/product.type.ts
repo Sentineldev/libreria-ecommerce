@@ -33,8 +33,6 @@ export type IncomingBookDto = {
     language: string;
     genre: string;
     author: string;
-   
-
 }
 
 export type IncomingBookProductDto = {

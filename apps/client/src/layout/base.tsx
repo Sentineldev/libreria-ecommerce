@@ -1,5 +1,4 @@
 import { NavBar } from "../components/Navbar";
-import AuthRequired from "../context/auth-required";
 
 export type BaseLayoutProps = {
     children: React.ReactNode;
@@ -8,15 +7,13 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
 
 
     return (
-        <AuthRequired>
-            <div className="w-full h-screen flex flex-col">
-                <div>
-                    <NavBar/>
-                </div>
-                <div className="bg-red-300 flex-1">
-                    { children }
-                </div>
+        <div className="w-full h-screen flex flex-col">
+            <div className="border-b border-neutral-400">
+                <NavBar/>
             </div>
-        </AuthRequired>
+            <div className="flex-1">
+                { children }
+            </div>
+        </div>
     );
 }

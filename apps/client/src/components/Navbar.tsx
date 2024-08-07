@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useAuthContext from "../context/useAuthContext"
 import { faArrowRightFromBracket, faArrowUpFromBracket, faBook, faTableList, faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../assets/img/logo.png"
+import { NavLink } from "react-router-dom";
 export function NavBar () {
 
   const { isLogIn } = useAuthContext();
@@ -75,7 +76,7 @@ export function NavBar () {
             }
           </ul>
         </div>
-        <a href="/store" className="h-fit">
+        <a href="/" className="h-fit">
           <img src={Logo} alt="" width={256}/>
         </a>
       </div>
@@ -84,7 +85,7 @@ export function NavBar () {
             <li>
               <div className="flex text-primary">
                 <FontAwesomeIcon size="lg" icon={faBook}/>
-                <a className="text-xl" href="/store">Catalogo</a>
+                <a className="text-xl" href="/">Catalogo</a>
               </div>
             </li>
             { !isLogIn &&
@@ -107,18 +108,18 @@ export function NavBar () {
               <li>
                 <div className="flex text-primary">
                   <FontAwesomeIcon icon={faTableList}/>
-                  <a className="text-xl" href="/store">Mis Ordenes</a>
+                  <NavLink className="text-xl" to="/account-orders">Mis Ordenes</NavLink>
                 </div>
               </li>
             }
-            { isLogIn &&
+            {/* { isLogIn &&
               <li>
                 <div className="flex text-primary">
                   <FontAwesomeIcon icon={faUser}/>
-                  <a className="text-xl" href="/store">Cuenta</a>
+                  <a className="text-xl" href="/">Cuenta</a>
                 </div>
               </li>
-            }
+            } */}
             { isLogIn &&
               <li>
                 <div className="flex text-primary">
