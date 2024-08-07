@@ -6,7 +6,7 @@ export default (): JwtModuleAsyncOptions => ({
   useFactory: async (configModule: ConfigService) => ({
     global: true,
     secret: configModule.get('jwtSecret'),
-    signOptions: { expiresIn: '86400' },
+    signOptions: { expiresIn: '86400s' },
   }),
   inject: [ConfigService],
 });

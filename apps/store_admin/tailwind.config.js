@@ -39,17 +39,6 @@ export default {
       "winter",
     ],
   },
-  // theme: {
-  //   extend: {
-  //     colors: {
-  //       "primary": "#EAE0D5",
-  //       "secondary": "#5E503F",
-  //     },
-  //     screens: {
-  //       cardSize: '320px'
-  //     }
-  //   },
-  // },
   plugins: [
     daisyui,
   ],
