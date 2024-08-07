@@ -10,7 +10,7 @@ export default function ProductsDisplay({ products }: ProductsDisplayProps) {
 
     return (
         <div className="card-container card-container p-4 items-center justify-center overflow-auto h-full">
-            {  products.map((product) => <ProductCard key={`unique-product-${product.id}`} product={product}/> ) }
+            {  products.filter((v) => !v.isPublic).map((product) => <ProductCard key={`unique-product-${product.id}`} product={product}/> ) }
         </div>
     )
 }
