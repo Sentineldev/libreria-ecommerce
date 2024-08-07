@@ -28,7 +28,7 @@ function SignUp() {
     } else {
         setErrorsState(INITIALY_DATA_CUSTOMER);
 
-        const url = "http://localhost:3000/api/accounts/create";
+        const url = import.meta.env.VITE_API_URL;
 
         const customer = {
             firstName: fields.name,
