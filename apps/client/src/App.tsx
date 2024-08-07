@@ -27,9 +27,6 @@ export default function App() {
             <Route path="login" element={<LoginIndex/>}/>
             <Route path="logout" element={<Logout/>}/>
             <Route path="sign-up" element={<SignUp/>}/>
-          {/* <Route path="store">
-              <Route path="" element={<Index/>}/>
-            </Route> */}
         </Routes>
       </BrowserRouter>
     </CartProvider>

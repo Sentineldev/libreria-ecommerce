@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Auth from "./pages/auth/auth";
 import ProductsIndex from "./pages/products/products";
 import RegisterBookProduct from "./pages/products/register/register-book-product";
 import UpdateBookProduct from "./pages/products/update/update-book-product";
@@ -13,7 +12,7 @@ export default function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="" element={<Auth/>}/>
+                <Route path="" element={<ProductsIndex/>}/>
                 <Route path="inventory">
                     <Route path="orders">
                         <Route path="" element={<OrdersIndex/>}/>
