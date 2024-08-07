@@ -22,7 +22,6 @@ export default function Index() {
 							<figure className="w-full h-full"><img src={Portada} alt="El Señor del Caos" className="w-[100%] h-[100%]"/></figure>
 						</div>
 					</section>
-					
 					<section className="col-span-2  grid grid-cols-[100%]">
 						<div className="col-span-1">
 							<div className="h-full w-full">

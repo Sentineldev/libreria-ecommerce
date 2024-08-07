@@ -33,9 +33,6 @@ export type IncomingOrderProductDto = {
     order: IncomingOrderDto;
 }
 
-export type CreateOrderDto = object;
-
-
 export type IncomingOrderCommentDto = {
     id: string;
     order: IncomingOrderDto;
@@ -71,4 +68,18 @@ export type IncomingBookDto = {
     language: string;
     genre: string;
     author: string;
+}
+
+export type CreateOrderDto = {
+    accountEmail: string;
+    totalBolivares: number;
+    totalDollars: number;
+    products: CreateOrderProductDto[];
+}
+
+export type CreateOrderProductDto = {
+    productId: string;
+    quantity: number;
+    totalBolivares: number;
+    totalDollars: number;
 }

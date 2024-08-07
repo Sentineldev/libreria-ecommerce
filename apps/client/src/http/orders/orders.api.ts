@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 import { API_URL } from "../api.config";
 import StorageUtils from "../../utils/storage";
-import { CreateCommentDto } from "./orders.dto";
+import { CreateCommentDto, CreateOrderDto } from "./orders.dto";
 
 export default class    OrdersApi {
 
@@ -17,6 +17,19 @@ export default class    OrdersApi {
         })
     }
 
+
+
+    async createOrder(order: CreateOrderDto) {
+        try {
+            const response = await this.instance.post(``, order);
+            return response;
+        } catch (error) {
+            if (axios.isAxiosError(error) && error.response) {
+                return error.response;
+            }            
+            throw new Error('Query failed');
+        }
+    }
 
     async getOrders(accountId: string): Promise<AxiosResponse> {
         try {

@@ -65,7 +65,6 @@ export class OrdersController {
   @Patch(':orderId/:status')
   @ApiOkResponse()
   update(@Param('orderId') id: string, @Param('status') status: string) {
-    console.log(id);
     return this.ordersService.update(id, status);
   }
 

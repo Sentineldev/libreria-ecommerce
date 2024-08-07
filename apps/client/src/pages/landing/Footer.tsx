@@ -1,40 +1,19 @@
-import { BooksBestSellers } from "./ConstBestSeller";
+import useProducts from "./hooks/useProducts";
+import ProductsDisplay from "./products/products-display";
 
 
 export function Footer(){
+
+
+    const { products } = useProducts(); 
     return(
-        <div className="flex flex-col h-screen bg-white">
+        <div className="flex flex-col bg-white">
             <section className="flex flex-col">
                 <header className="w-full pt-4">
-                    <h1 className="w-full text-2xl pl-6 text-primary font-bold">Los más vendidos</h1>
+                    {/* <h1 className="w-full text-2xl pl-6 text-primary font-bold">Los más vendidos</h1> */}
                 </header>
-                <div className="">
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr]  lg:grid-rows-[47vh] lg:items-center gap-4">
-                        <div className="col-span-1 flex justify-self-center flex-col gap-2 w-70 h-70 items-center pt-4">
-                            <div className="w-full">
-                                <img src={BooksBestSellers.first} alt="El Señor del Caos" className="h-64 w-64"/>
-                            </div>
-                            <div>
-                                <button className="bg-white hover:bg-slate-200 rounded-lg w-28 h-10 text-black">Ver más</button>
-                            </div>
-                        </div>
-                        <div className="col-span-1 flex justify-self-center  flex-col gap-2 w-70 h-70 items-center">
-                            <div className="w-full">
-                                <img src={BooksBestSellers.second} alt="La Tormenta" className="h-64 w-64"/>
-                            </div>
-                            <div>
-                                <button className="bg-white hover:bg-slate-200 rounded-lg w-28 h-10 text-black">Ver más</button>
-                            </div>
-                        </div>
-                        <div className="col-span-1 flex justify-self-center  flex-col gap-2 w-70 h-70 items-center pb-4">
-                            <div className="w-full">
-                                <img src={BooksBestSellers.third} alt="La Tormenta" className="h-64 w-64"/>
-                            </div>
-                            <div>
-                                <button className="bg-white hover:bg-slate-200 rounded-lg w-28 h-10 text-black">Ver más</button>
-                            </div>
-                        </div>
-                    </div>
+                <div className="overflow-auto">
+                    { <ProductsDisplay products={products}/> }
                 </div>
            </section>
 

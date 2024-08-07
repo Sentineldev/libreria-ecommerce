@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useAuthContext from "../context/useAuthContext"
-import { faArrowRightFromBracket, faArrowUpFromBracket, faBook, faTableList, faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightFromBracket, faArrowUpFromBracket, faBook, faCartShopping, faTableList, faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../assets/img/logo.png"
 import { NavLink } from "react-router-dom";
 export function NavBar () {
@@ -88,6 +88,12 @@ export function NavBar () {
                 <a className="text-xl" href="/">Catalogo</a>
               </div>
             </li>
+            <li>
+              <div className="flex text-primary">
+                <FontAwesomeIcon size="lg" icon={faCartShopping}/>
+                <a className="text-xl" href="/cart">Carrito</a>
+              </div>
+            </li>
             { !isLogIn &&
               <li>
                 <div className="flex text-primary">
@@ -112,6 +118,7 @@ export function NavBar () {
                 </div>
               </li>
             }
+            
             {/* { isLogIn &&
               <li>
                 <div className="flex text-primary">

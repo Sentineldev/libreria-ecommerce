@@ -21,11 +21,11 @@ export default function ProductsDisplay() {
     }
 
     return (
-        <div className="bg-white shadow-2xl p-12 py-6 flex flex-col gap-6 border rounded-md max-h-[650px] h-[650px]">
+        <div className="bg-white shadow-2xl p-12 py-6 flex flex-col gap-6 border rounded-md max-h-[650px] h-[650px] overflow-auto">
             <div>
                 <h1 className="font-bold text-2xl">Productos</h1>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col flex-1 overflow-auto">
                 <div>
                     <div className="grid grid-cols-7 gap-4 bg-primary p-4 items-center">
                         <div className="col-span-2">
@@ -45,7 +45,7 @@ export default function ProductsDisplay() {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col overflow-auto ">
                     { productList.map((product, index) => (
                         <ProductDisplay productData={product} key={`unique-book-display-idnex=${index}`}/>
                     )) }
