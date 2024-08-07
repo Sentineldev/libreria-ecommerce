@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IncomingOrderCommentDto } from "../../../../api/orders.type";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { IncomingOrderCommentDto } from "../../../../http/orders/orders.dto";
 
 export type CommentDisplayProps = {
     comment: IncomingOrderCommentDto;

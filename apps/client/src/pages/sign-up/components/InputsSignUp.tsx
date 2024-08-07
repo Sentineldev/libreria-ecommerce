@@ -13,7 +13,7 @@ export const InputSignUp = ({classNameContainer,classNameLabel, valueLabel, inpu
             <div className="w-full h-full">
                 <label className={classNameLabel}>
                     {valueLabel}
-                    <input type={inputType} className="w-full input input-bordered input-primary  h-14" name={nameInput} autoComplete="off"/>
+                    <input type={inputType} className="w-full input input-bordered border-primary bg-transparent  h-14" name={nameInput} autoComplete="off"/>
                 </label>
             </div>
         </div>

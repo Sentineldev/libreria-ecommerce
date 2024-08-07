@@ -26,7 +26,7 @@ export default function LoginIndex () {
 
     async function OnSubmitHandler({ email, password }: LoginData) {
         setErrorMessage("");
-        const api = new AccountApi("");
+        const api = new AccountApi();
         
         setLoading(true);
         const response = await api.auth(email, password);
